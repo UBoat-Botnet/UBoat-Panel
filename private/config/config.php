@@ -11,9 +11,9 @@ return [
         '404' => 'error404',
     ],
     'db' => [
-        'username' => 'root',
-        'password' => 'root',
-        'host' => 'localhost',
+        'username' => 'uboat',
+        'password' => 'uboat',
+        'host' => 'mysql',
         'dbname' => 'uboat'
     ],
     //screenshot settings

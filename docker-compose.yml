@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  webserver:
+    image: php:7.2-apache
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    links:
+      - mysql
+    networks:
+      - vlan
+
+  mysql:
+    image: mariadb:10.1
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./container/mysql/var/lib/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=uboat
+      - MYSQL_USER=uboat
+      - MYSQL_PASSWORD=uboat
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - vlan
+
+networks:
+  vlan:
