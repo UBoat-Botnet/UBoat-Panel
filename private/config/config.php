@@ -4,7 +4,7 @@ return [
     'base_url' => 'http://localhost/PHP/', // Base URL including trailing slash (e.g. http://localhost/)
     'default_controller' => 'main', // Default controller to load
     'encoding' => 'utf-8',
-    'error_controller' => 'error', // Controller used for errors (e.g. 404, 500 etc)
+    'error_controller' => 'errors', // Controller used for errors (e.g. 404, 500 etc)
     'error_type' => [
         //default 404
         '403' => 'error403',
