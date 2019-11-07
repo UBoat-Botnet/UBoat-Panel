@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'base_url' => 'http://localhost/PHP/', // Base URL including trailing slash (e.g. http://localhost/)
+    'base_url' => 'http://localhost/', // Base URL including trailing slash (e.g. http://localhost/)
     'default_controller' => 'main', // Default controller to load
     'encoding' => 'utf-8',
     'error_controller' => 'errors', // Controller used for errors (e.g. 404, 500 etc)
