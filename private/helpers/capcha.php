@@ -18,7 +18,7 @@ class capcha{
         }
         goat::$app->setFlash("_cap", $code, 1);
 
-        $font = ROOT_DIR.'www\fonts\\' . goat::$app->config['capcha']['fonts'][mt_rand(0, count(goat::$app->config['capcha']['fonts']) - 1)];//todo: add more fonts
+        $font = WEB_DIR.'/fonts/' . goat::$app->config['capcha']['fonts'][mt_rand(0, count(goat::$app->config['capcha']['fonts']) - 1)];//todo: add more fonts
         //Set the font size.
         $font_size = mt_rand(goat::$app->config['capcha']['font_size'][0], goat::$app->config['capcha']['font_size'][1]);
         $angle = rand(goat::$app->config['capcha']['angle'][0], goat::$app->config['capcha']['angle'][1]);
