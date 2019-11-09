@@ -1,21 +1,26 @@
 <?php
 
-class Errors extends Controller {
+/**
+ * This file is part of UBoat - HTTP Botnet Project
+ */
 
-	function index()
-	{
-		$this->error404();
-	}
+class Errors extends Controller
+{
+    public function index()
+    {
+        $this->error404();
+    }
 
-	function error404()
-	{
-		echo '<h1>404 Error</h1>';
-		echo '<p>Looks like this page doesn\'t exist</p>';
-		echo $_SERVER['REQUEST_URI'];
-	}
-    function error403()
-	{
-		echo '<h1>403 Forbidden </h1>';
-		echo '<p>You are not allowed to perform this action.</p>';
-	}
+    public function error404()
+    {
+        echo '<h1>404 Error</h1>';
+        echo '<p>Looks like this page doesn\'t exist</p>';
+        echo $_SERVER['REQUEST_URI'];
+    }
+
+    public function error403()
+    {
+        echo '<h1>403 Forbidden </h1>';
+        echo '<p>You are not allowed to perform this action.</p>';
+    }
 }

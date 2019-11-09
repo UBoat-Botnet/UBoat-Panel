@@ -1,20 +1,23 @@
 <?php
 
-class Session_helper {
+/**
+ * This file is part of UBoat - HTTP Botnet Project
+ */
 
-	function set($key, $val)
-	{
-		$_SESSION["$key"] = $val;
-	}
-	
-	function get($key)
-	{
-		return $_SESSION["$key"];
-	}
-	
-	function destroy()
-	{
-		session_destroy();
-	}
+class Session_helper
+{
+    public function set($key, $val)
+    {
+        $_SESSION["$key"] = $val;
+    }
 
+    public function get($key)
+    {
+        return $_SESSION["$key"];
+    }
+
+    public function destroy()
+    {
+        session_destroy();
+    }
 }

@@ -1,21 +1,24 @@
 <?php
 
-class View {
+/**
+ * This file is part of UBoat - HTTP Botnet Project
+ */
 
-	private $template;
-	public function __construct($template)
-	{
-		$this->template = APP_DIR .'/views/'. $template .'.php';
-	}
+class View
+{
+    private $template;
 
-	public function render($params = [])
-	{
-		extract($params);
+    public function __construct($template)
+    {
+        $this->template = APP_DIR.'/views/'.$template.'.php';
+    }
 
-		ob_start();
-		require($this->template);
-		echo ob_get_clean();
+    public function render($params = [])
+    {
+        extract($params);
 
-	}
-
+        ob_start();
+        require $this->template;
+        echo ob_get_clean();
+    }
 }

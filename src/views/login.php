@@ -5,11 +5,11 @@
  * Created by PhpStorm.
  * User: Ben
  * Date: 10/28/2015
- * Time: 1:25 AM
+ * Time: 1:25 AM.
  */
-
-if(!empty($_SESSION['auth_token']))
-    header("location: views\panel\index.php"); //TODO: make this a variable and compare it to db token
+if (! empty($_SESSION['auth_token'])) {
+    header("location: views\panel\index.php");
+} //TODO: make this a variable and compare it to db token
 
 ?>
 <script>
@@ -24,11 +24,11 @@ if(!empty($_SESSION['auth_token']))
 <!-- LOGIN FORM -->
 <div class="text-center login-container" style="padding:50px 0">
     <?php
-    if(goat::$app->config['display_login_error'])
-    {
-        $_fl = goat::$app->getFlash("_login_error");
-        if(!empty($_fl))
+    if (goat::$app->config['display_login_error']) {
+        $_fl = goat::$app->getFlash('_login_error');
+        if (! empty($_fl)) {
             echo '<div class="alert alert-danger" role="alert">'.$_fl['Error'].'</div>';
+        }
     }
     ?>
     <div class="logo"></div>
@@ -53,7 +53,7 @@ if(!empty($_SESSION['auth_token']))
                             <input type="text" class="form-control" id="capcha" name="capcha" placeholder="Capcha..">
                         </div>
                         <div class="col-lg-3">
-                            <img class="capcha" style="margin-top: 0.3em;" src='<?= 'data:image/png;base64, '. $cap->recap() ?>'/>
+                            <img class="capcha" style="margin-top: 0.3em;" src='<?php echo 'data:image/png;base64, '.$cap->recap(); ?>'/>
                         </div>
                     </div>
                     <div class="form-group login-group-checkbox">

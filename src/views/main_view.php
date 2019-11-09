@@ -1,6 +1,6 @@
 <?php
 //dummmy to clean the flash
-$_t = goat::$app->getFlash("_bots");
+$_t = goat::$app->getFlash('_bots');
 ?>
 <script>
     $(function() {
@@ -120,7 +120,7 @@ $_t = goat::$app->getFlash("_bots");
     });
 </script>
 <div class="alpha-container container-fluid">
-<?= $header ?>
+<?php echo $header; ?>
 <div class="container main-container col-lg-10" style="margin-right: 0; background-color: white; margin-top: 1em; height: 65em;">
     <!-- Modal -->
     <div id="logsModal" class="modal fade" role="dialog">
@@ -191,11 +191,10 @@ $_t = goat::$app->getFlash("_bots");
                 <?php
                 echo '<tr>';
 
+                $records_per_page = 17;
 
-                $records_per_page=17;
-
-                $newquery = $paginate->paging($query,$records_per_page);
-                $paginate->dataview($newquery, ['removeFirst'=> true, 'valueIndex' => 'id', 'stumble'=>'botstatus', 'flags' => 'true', 'stumbleData' => ['<a style="color: #c3c3c3;">', '</a>', '<a style="color: #00b33c">','</a>']]); //
+                $newquery = $paginate->paging($query, $records_per_page);
+                $paginate->dataview($newquery, ['removeFirst' => true, 'valueIndex' => 'id', 'stumble' => 'botstatus', 'flags' => 'true', 'stumbleData' => ['<a style="color: #c3c3c3;">', '</a>', '<a style="color: #00b33c">', '</a>']]);
                 echo '</tr>';
 
                 ?>
@@ -203,7 +202,7 @@ $_t = goat::$app->getFlash("_bots");
             </table>
         </form>
         <div class="col-lg-9 col-md-9 col-sm-12" style="bottom: 0;">
-            <?= $paginate->paginglink($query,$records_per_page); ?>
+            <?php echo $paginate->paginglink($query, $records_per_page); ?>
 
         </div>
     </div>

@@ -13,7 +13,7 @@ $_route = end($_route);
 
 <script>
     $(function() {
-        $(".<?= $_route ?>").addClass('active').siblings().removeClass('active');
+        $(".<?php echo $_route; ?>").addClass('active').siblings().removeClass('active');
     });
 </script>
 
@@ -21,7 +21,7 @@ $_route = end($_route);
     <div class="profile-sidebar">
         <!-- SIDEBAR USERPIC -->
         <div class="profile-userpic">
-            <img src="<?= WEB_DIR ?>/images/spectral_logo.png" class="img-responsive" alt="">
+            <img src="<?php echo WEB_DIR; ?>/images/spectral_logo.png" class="img-responsive" alt="">
         </div>
         <!-- END SIDEBAR USERPIC -->
         <!-- SIDEBAR USER TITLE -->

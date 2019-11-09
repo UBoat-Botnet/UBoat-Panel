@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This file is part of UBoat - HTTP Botnet Project
+ */
+
 return [
     'base_url' => 'http://localhost/', // Base URL including trailing slash (e.g. http://localhost/)
     'default_controller' => 'main', // Default controller to load
@@ -14,10 +18,10 @@ return [
         'username' => 'uboat',
         'password' => 'uboat',
         'host' => 'mysql',
-        'dbname' => 'uboat'
+        'dbname' => 'uboat',
     ],
     //screenshot settings
-    'screenshots'=>[
+    'screenshots' => [
         'enabled' => 'true',
         'external_address' => 'localhost', // 'domain_goes_here', localhost for local testing only
         'port' => '25019',
@@ -27,7 +31,7 @@ return [
         'random_color' => 'true',
         'char_pool' => '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
         'angle' => ['-30', '30'],
-        'fonts' =>['Roboto-Medium.ttf', 'Roboto-Italic.ttf'],
+        'fonts' => ['Roboto-Medium.ttf', 'Roboto-Italic.ttf'],
         'font_size' => ['10.0', '11.0'],
     ],
     //key for logs encryption
@@ -37,6 +41,4 @@ return [
 
     // Include assets config
     'assets' => 'assets.php',
-
-
 ];
