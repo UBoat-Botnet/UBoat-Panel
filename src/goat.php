@@ -53,13 +53,13 @@ class goat
             require_once $path;
         } else {
             $controller = $this->config['error_controller'];
-            require_once APP_DIR.'controllers/'.$controller.'.php';
+            require_once APP_DIR.'/controllers/'.$controller.'.php';
         }
 
         // Check the action exists
         if (! method_exists($controller, $action)) {
             $controller = $this->config['error_controller'];
-            require_once APP_DIR.'controllers/'.$controller.'.php';
+            require_once APP_DIR.'/controllers/'.$controller.'.php';
             $action = 'index';
         }
 
