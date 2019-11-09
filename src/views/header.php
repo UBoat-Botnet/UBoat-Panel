@@ -1,16 +1,3 @@
-<?php
-$_route = explode('/', $route);
-$_route = end($_route);
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-
-    <title>Spectral</title>
-</head>
-<body>
-
 <script>
     $(function() {
         $(".<?php echo $_route; ?>").addClass('active').siblings().removeClass('active');

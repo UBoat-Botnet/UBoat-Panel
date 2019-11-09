@@ -63,27 +63,6 @@ class goat
             $action = 'index';
         }
 
-        //set encoding
-        echo '<meta charset="'.$config['encoding'].'">';
-
-        //include the css/js
-        $_assets['assets'] = (isset($config['assets'])) ? (file_exists(APP_DIR.'config/'.$config['assets'])) ? require_once(APP_DIR.'config/'.$config['assets']) : null : null;
-        if (! empty($_assets['assets'])) {
-            $_assets['assets'] = array_map(function ($dat) {return substr_replace($dat, WEB_DIR, 0, 0); }, $_assets['assets']);
-        }
-
-        if (isset($_assets['assets']['css'])) {
-            foreach ($_assets['assets']['css'] as $css) {
-                echo '<link rel="stylesheet" href="'.$css.'" type="text/css"></link>';
-            }
-        }
-
-        if (isset($_assets['assets']['js'])) {
-            foreach ($_assets['assets']['js'] as $css) {
-                echo '<script src="'.$css.'"></script>';
-            }
-        }
-
         // Create object and call method
         $obj = new $controller();
 
