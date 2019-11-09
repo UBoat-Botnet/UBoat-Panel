@@ -1,15 +1,8 @@
-
-
 <?php
+
 /**
- * Created by PhpStorm.
- * User: Ben
- * Date: 10/28/2015
- * Time: 1:25 AM.
+ * This file is part of UBoat - HTTP Botnet Project
  */
-if (! empty($_SESSION['auth_token'])) {
-    header("location: views\panel\index.php");
-} //TODO: make this a variable and compare it to db token
 
 ?>
 <script>

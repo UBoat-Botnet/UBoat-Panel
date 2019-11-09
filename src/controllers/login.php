@@ -8,6 +8,10 @@ class Login extends Controller
 {
     public function index()
     {
+        if (! empty($_SESSION['auth_token'])) {
+            $this->redirect('main');
+        } //TODO: make this a variable and compare it to db token
+
         if (isset($_SESSION['csrf'])) {
             $helper = $this->loadHelper('AuthVerify');
 

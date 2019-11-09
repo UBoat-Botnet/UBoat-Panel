@@ -42,13 +42,14 @@ class Controller
     public function loadHelper($name)
     {
         require APP_DIR.'/helpers/'.strtolower($name).'.php';
-        $helper = new $name(); //(!empty($params)) ? new $name($params): new $name;
+        $helper = new $name();
         return $helper;
     }
 
     public function redirect($loc)
     {
         header('Location: '.goat::$app->config['base_url'].$loc);
+        die();
     }
 
     public function route()
