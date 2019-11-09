@@ -1,17 +1,13 @@
 <script>
-    $(function() {
-        $(".<?php echo $_route; ?>").addClass('active').siblings().removeClass('active');
-    });
+$(function() {
+    $(".<?php echo $_route; ?>").addClass('active').siblings().removeClass('active');
+});
 </script>
 
 <div class="col-lg-2">
     <div class="profile-sidebar">
-        <!-- SIDEBAR USERPIC -->
-        <div class="profile-userpic">
-            <img src="<?php echo WEB_DIR; ?>/images/spectral_logo.png" class="img-responsive" alt="">
-        </div>
-        <!-- END SIDEBAR USERPIC -->
-        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-userpic"><img alt="" class="img-responsive" src="<?=goat::$app->config['base_url'];?>/images/spectral_logo.png"></div>
+
         <div class="profile-usertitle">
             <div class="profile-usertitle-name">
                 Spectral
@@ -20,37 +16,26 @@
                 Panel
             </div>
         </div>
-        <!-- END SIDEBAR USER TITLE -->
-        <!-- SIDEBAR BUTTONS -->
+
         <div class="profile-userbuttons">
-            <a href="logout" class="btn btn-danger btn-sm">Logout</a>
+            <a class="btn btn-danger btn-sm" href="logout">Logout</a>
         </div>
-        <!-- END SIDEBAR BUTTONS -->
-        <!-- SIDEBAR MENU -->
+
         <div class="profile-usermenu">
             <ul class="nav">
-                <li class="dashboard">
-                    <a href="dashboard">
-                        <i class="glyphicon glyphicon-globe"></i>
-                        Dashboard </a>
+                <li class="dashboard<?=goat::$app->getMatchedController() == 'dashboard' ? ' active' : '';?>">
+                    <a href="dashboard"><i class="glyphicon glyphicon-globe"></i> Dashboard</a>
                 </li>
-                <li class="main active">
-                    <a href="main">
-                        <i class="glyphicon glyphicon-home"></i>
-                        Bots </a>
+                <li class="main<?=goat::$app->getMatchedController() == 'main' ? ' active' : '';?>">
+                    <a href="main"><i class="glyphicon glyphicon-home"></i> Bots</a>
                 </li>
-                <li class="account">
-                    <a href="account">
-                        <i class="glyphicon glyphicon-user"></i>
-                        Account Settings </a>
+                <li class="account<?=goat::$app->getMatchedController() == 'account' ? ' active' : '';?>">
+                    <a href="account"><i class="glyphicon glyphicon-user"></i> Account Settings</a>
                 </li>
-                <li class="tasks">
-                    <a href="tasks">
-                        <i class="glyphicon glyphicon-ok"></i>
-                        Tasks </a>
+                <li class="tasks<?=goat::$app->getMatchedController() == 'tasks' ? ' active' : '';?>">
+                    <a href="tasks"><i class="glyphicon glyphicon-ok"></i> Tasks</a>
                 </li>
             </ul>
         </div>
-        <!-- END MENU -->
     </div>
 </div>
