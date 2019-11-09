@@ -9,6 +9,9 @@ class goat
     public static $app;
     public $config;
 
+    protected $matched_controller;
+    protected $matched_action;
+
     public function __construct($config)
     {
         // Set our defaults
@@ -66,6 +69,9 @@ class goat
         // Create object and call method
         $obj = new $controller();
 
+        $this->matched_controller = $controller;
+        $this->matched_action = $action;
+
         return call_user_func_array([$obj, $action], array_slice($segments, 2));
     }
 
@@ -117,5 +123,15 @@ class goat
         if (! empty($inlineJS)) {
             echo '<script type="text/javascript">'.$inlineJS.'</script>';
         }
+    }
+
+    public function getMatchedController()
+    {
+        return $this->matched_controller;
+    }
+
+    public function getMatchedAction()
+    {
+        return $this->matched_action;
     }
 }
