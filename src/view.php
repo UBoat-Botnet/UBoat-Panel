@@ -5,7 +5,7 @@ class View {
 	private $template;
 	public function __construct($template)
 	{
-		$this->template = APP_DIR .'views/'. $template .'.php';
+		$this->template = APP_DIR .'/views/'. $template .'.php';
 	}
 
 	public function render($params = [])
@@ -17,7 +17,5 @@ class View {
 		echo ob_get_clean();
 
 	}
-    
-}
 
-?>
+}

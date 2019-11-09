@@ -6,10 +6,6 @@ class goat{
 
     function __construct($config)
     {
-
-        //set encoding
-        echo '<meta charset="'.$config["encoding"].'">';
-
         // Set our defaults
         $this::$app = $this;
         $this->config = $config;
@@ -47,7 +43,7 @@ class goat{
 
 
 
-        $path = APP_DIR . 'controllers/' . $controller.'.php';
+        $path = APP_DIR . '/controllers/' . $controller.'.php';
 
         if(file_exists($path)){
             require_once($path);
@@ -62,11 +58,15 @@ class goat{
             require_once(APP_DIR . 'controllers/' . $controller . '.php');
             $action = 'index';
         }
+
+
+        //set encoding
+        echo '<meta charset="'.$config["encoding"].'">';
+
         //include the css/js
         $_assets['assets'] = (isset($config['assets'])) ? (file_exists(APP_DIR.'config/'.$config['assets'])) ? require_once(APP_DIR.'config/'.$config['assets']) : null  : null;
         if(!empty($_assets['assets']))
             $_assets['assets'] = array_map(function($dat){return substr_replace($dat, WEB_DIR, 0 , 0);}, $_assets['assets']);
-
 
 
         if(isset($_assets['assets']['css']))
