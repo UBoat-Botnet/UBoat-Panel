@@ -7,7 +7,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - .:/var/www/html
+      - ./public:/var/www/html
+      - ./src:/var/www/src
     links:
       - mysql
     networks:
