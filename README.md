@@ -2,7 +2,7 @@
 
 Administration panel for the HTTP botnet **UBoat** - https://github.com/Souhardya/UBoat/
 
-## Requirements
+## Requirements
 
 - PHP >= 7.0
 - pdo
