@@ -10,6 +10,7 @@
 <head>
     <meta charset="utf-8" />
     <title>UBoat - HTTP Botnet Project</title>
+    <base href="<?=goat::$app->config['base_url'];?>" />
 
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
