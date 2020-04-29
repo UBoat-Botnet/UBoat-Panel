@@ -9,6 +9,7 @@ Administration panel for the HTTP botnet **UBoat** - https://github.com/Souhardy
 - pdo_mysql
 - gd
 - mcrypt
+- json
 
 ## Installation
 
