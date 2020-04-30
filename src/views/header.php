@@ -6,14 +6,14 @@ $(function() {
 
 <div class="col-lg-2">
     <div class="profile-sidebar">
-        <div class="profile-userpic"><img alt="" class="img-responsive" src="<?=goat::$app->config['base_url'];?>/images/spectral_logo.png"></div>
+        <div class="profile-userpic"><img alt="" class="img-responsive" src="<?=goat::$app->config['base_url'];?>/images/logo_small_w.png"></div>
 
         <div class="profile-usertitle">
             <div class="profile-usertitle-name">
-                Spectral
+                UBoat
             </div>
             <div class="profile-usertitle-job">
-                Panel
+                Panel v<?=PANEL_VERSION;?>
             </div>
         </div>
 

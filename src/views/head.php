@@ -20,7 +20,7 @@
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="js/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="js/chartjs/Chart.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/chartjs/Chart.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
