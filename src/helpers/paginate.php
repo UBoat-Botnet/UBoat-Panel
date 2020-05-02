@@ -36,7 +36,7 @@ class paginate
                     $row[$params['stumble']] = ((1 == $row[$params['stumble']]) ? $params['stumbleData'][2].'Online'.$params['stumbleData'][3] : $params['stumbleData'][0].'Offline'.$params['stumbleData'][1]);
                 }
                 if (isset($params['flags']) && 'true' == $params['flags']) {
-                    $row['country_code'] = '<img src="'.WEB_DIR.'images/flags/'.$row['country_code'].'.gif">';
+                    $row['country_code'] = '<img src="'.goat::$app->config['base_url'].'/images/flags/'.$row['country_code'].'.gif">';
                 }
                 foreach ($row as $item) {
                     echo (strlen($item) > 500) ? $params['preTags'][0].substr($item, 0, 500).$params['preTags'][1] : $params['preTags'][0].$item.$params['preTags'][1];
