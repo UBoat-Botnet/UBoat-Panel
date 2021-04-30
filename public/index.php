@@ -11,7 +11,7 @@ define('WEB_BASE', realpath(__DIR__));
 define('WEB_DIR' , WEB_BASE);
 
 spl_autoload_register(function ($class) {
-    include APP_DIR . '/' . $class . '.php';
+    include APP_DIR . '/' . strtolower($class) . '.php';
 });
 
 $config = require(APP_DIR .'/config/config.php');
